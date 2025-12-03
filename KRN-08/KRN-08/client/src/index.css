@@ -1,0 +1,135 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
+
+  /* WinUI specific custom colors */
+  --color-terminal-bg: hsl(var(--terminal-bg));
+  --color-terminal-fg: hsl(var(--terminal-fg));
+}
+
+/* Default Dark Mode (Windows 11 Dark Style) */
+:root {
+  /* Zinc-950 base for that deep mica feel */
+  --background: 240 10% 10%; 
+  --foreground: 0 0% 95%;
+
+  /* Slightly lighter for cards/layers */
+  --card: 240 10% 14%;
+  --card-foreground: 0 0% 95%;
+
+  --popover: 240 10% 12%;
+  --popover-foreground: 0 0% 95%;
+
+  /* Windows Blue Accent */
+  --primary: 190 90% 50%; 
+  --primary-foreground: 240 10% 10%;
+
+  --secondary: 240 6% 20%;
+  --secondary-foreground: 0 0% 98%;
+
+  --muted: 240 6% 20%;
+  --muted-foreground: 240 5% 65%;
+
+  --accent: 240 6% 25%;
+  --accent-foreground: 0 0% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 240 6% 20%;
+  --input: 240 6% 20%;
+  --ring: 190 90% 50%;
+
+  --radius: 0.5rem;
+
+  --sidebar: 240 10% 8%;
+  --sidebar-foreground: 240 5% 90%;
+  --sidebar-primary: 190 90% 50%;
+  --sidebar-primary-foreground: 240 10% 10%;
+  --sidebar-accent: 240 6% 20%;
+  --sidebar-accent-foreground: 240 5% 90%;
+  --sidebar-border: 240 6% 15%;
+  --sidebar-ring: 190 90% 50%;
+
+  --terminal-bg: 0 0% 8%;
+  --terminal-fg: 120 100% 50%; /* Retro green terminal text */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    /* Subtle grid pattern overlay */
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  
+  /* Custom Scrollbar for that Windows feel */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--secondary));
+    border-radius: 5px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', monospace;
+}
