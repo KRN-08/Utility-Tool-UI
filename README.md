@@ -1,3 +1,4 @@
 # Utility-Tool-UI
 Window's 11 Utility Tool
-THIS IS ONLY THE UI FOR MY TOOL
+(This is only the UI for my tool)
+(nothing will be functional but winget commands are pre-loaded)
